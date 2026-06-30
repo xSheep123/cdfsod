@@ -1,0 +1,3 @@
+[submodule "dreamgaussian"]
+	path = dreamgaussian
+	url = git@github.com:dreamgaussian/dreamgaussian.git

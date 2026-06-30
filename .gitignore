@@ -34,4 +34,3 @@ tools/tsne.py
 detectron2/data/datasets/__pycache__
 detectron2/__pycache__
 lib/__pycache__
-dreamgaussian/
