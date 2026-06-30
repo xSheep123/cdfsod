@@ -1,0 +1,123 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "tsne",
+            "type": "debugpy",
+            "cwd": "${workspaceFolder}",
+            "request": "launch",
+            "program": "./tools/tsne.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {"CUDA_VISIBLE_DEVICES":"7"},
+            "args": [
+                "--dataset",
+                "ArTaxOr_1shot",
+                "--out_dir",
+                "prototypes_init",
+                "--model",
+                "vitl14",
+                "--epochs",
+                "1",
+                "--use_bbox",
+                "yes",
+                "--without_mask",
+                "True"
+            ]
+        },
+        
+
+        {
+            "name": "extract_instance_prototypes",
+            "type": "debugpy",
+            "cwd": "${workspaceFolder}",
+            "request": "launch",
+            "program": "./tools/extract_instance_prototypes.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {"CUDA_VISIBLE_DEVICES":"0"},
+            "args": [
+                "--dataset",
+                "FISH_1shot",
+                "--out_dir",
+                "prototypes_init",
+                "--model",
+                "vitl14",
+                "--epochs",
+                "1",
+                "--use_bbox",
+                "yes",
+                "--without_mask",
+                "True"
+            ]
+        },
+    
+        {
+            "name": "run_sinkhorn_cluster",
+            "cwd": "${workspaceFolder}",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "./tools/run_sinkhorn_cluster.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {"CUDA_VISIBLE_DEVICES":"0"},
+            "args": [
+                "--inp",
+                "prototypes_init/FISH_5shot.vitl14.bbox.pkl",
+                "--epochs",
+                "30",
+                "--momentum",
+                "0.002",
+                "--num_prototypes",
+                "5"
+            ]
+            
+        },
+        {
+            "name": "extract_features",
+            "type": "debugpy",
+            "cwd": "${workspaceFolder}",
+            "request": "launch",
+            "program": "./tools/extract_features.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {"CUDA_VISIBLE_DEVICES":"6"},
+            "args": [
+                "--dataset",
+                "clipart1k_1shot",
+                "--out_dir",
+                "prototypes_init",
+                "--model",
+                "vitl14",
+                "--epochs",
+                "1",
+                "--use_bbox",
+                "yes",
+                "--without_mask",
+                "True"
+            ]
+        },
+
+        {
+            "name": "train_net",
+            "type": "debugpy",
+            "cwd": "${workspaceFolder}",
+            "request": "launch",
+            "program": "./tools/train_net.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {"CUDA_VISIBLE_DEVICES":"2,3","TORCH_DISTRIBUTED_DEBUG":"INFO"},
+            "args": [
+               "--num-gpus", "2",
+                "--config-file", "configs/clipart1k/vitl_shot1_clipart1k_finetune.yaml",
+                "MODEL.WEIGHTS", "weights/trained/few-shot/vitl_0089999.pth",
+                "DE.OFFLINE_RPN_CONFIG", "configs/RPN/mask_rcnn_R_50_C4_1x_ovd_FSD.yaml",
+                "OUTPUT_DIR", "output/generate/vitl/clipart1k_1shot/"
+            ]
+        }
+        
+    ]
+}

@@ -1,0 +1,58 @@
+DATASETS:
+  NUM_ANNOTATIONS: 7
+  NUM_IMG: 7
+  TEST: ("ArTaxOr_test",)
+  TRAIN: ("ArTaxOr_1shot",)
+DE:
+  ATTN_FUSE_RATIO: 0.7
+  BG_CLS_LOSS_WEIGHT: 0.2
+  CLASS_PROTOTYPES: prototypes_init/ArTaxOr_1shot.vits14.bbox.p5.sk.pkl
+  BG_PROTOTYPES: weights/initial/background/background_prototypes.vits14.pth
+  SET_CD_VITO: true
+  TOPK: 5
+INPUT:
+  FORMAT: RGB
+  MAX_SIZE_TEST: 1333
+  MAX_SIZE_TRAIN: 1333
+  MIN_SIZE_TEST: 800
+  MIN_SIZE_TRAIN: (640, 672, 704, 736, 768, 800)
+  MIN_SIZE_TRAIN_SAMPLING: choice
+MODEL:
+  BACKBONE:
+    NAME: build_dino_v2_vit
+    TYPE: large
+  CLASS_WEIGHT: 0.0
+  GEO_WEIGHT: 5000.0
+  MASK_ON: false
+  META_ARCHITECTURE: OpenSetDetectorWithExamples
+  PIXEL_MEAN:
+  - 0.48145466
+  - 0.4578275
+  - 0.40821073
+  PIXEL_STD:
+  - 0.26862954
+  - 0.26130258
+  - 0.27577711
+  ROI_BOX_HEAD:
+    CLS_AGNOSTIC_BBOX_REG: true
+    NAME: ''
+    NUM_FC: 0
+    POOLER_RESOLUTION: 7
+  ROI_HEADS:
+    SCORE_THRESH_TEST: 0.001
+  RPN:
+    HEAD_NAME: StandardRPNHead
+    IN_FEATURES:
+    - res4
+  WEIGHTS: ''
+SEED: 0
+SOLVER:
+  BASE_LR: 0.002
+  CHECKPOINT_PERIOD: 100
+  IMS_PER_BATCH: 24
+  MAX_ITER: 100
+  STEPS: (50, 80)
+  WARMUP_ITERS: 20
+TEST:
+  EVAL_PERIOD: 100
+_BASE_: ../Base-RCNN-C4.yaml
