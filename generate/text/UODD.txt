@@ -1,0 +1,3 @@
+0:'Sea cucumbers are marine invertebrates known for their elongated, leathery bodies, which are typically covered in spines or tentacles and lack a distinct head or tail.'
+1:'Sea urchins are marine invertebrates characterized by their globular shape, covered in dense clusters of spines for protection, and having a distinctive oral surface with five radiating rows of teeth-like structures called pedicellariae.'
+2:'Scallops are marine bivalve mollusks characterized by their flattened, oval-shaped shells, typically with distinctive radial ribbing and a wavy or scalloped edge.'

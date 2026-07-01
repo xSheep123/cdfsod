@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -16,11 +15,14 @@ if [ ! -d "$SOURCE_DIR" ]; then
     exit 1
 fi
 
-find "$SOURCE_DIR" -maxdepth 1 -type f -print0 |
-while IFS= read -r -d '' file; do
-    filename="$(basename "$file")"
-    cp "$file" "$TARGET_DIR/$filename"
-    echo "Installed: generate/$filename -> B/$filename"
+find "$SOURCE_DIR" -type f -print0 | while IFS= read -r -d '' file; do
+    rel_path="${file#$SOURCE_DIR/}"
+    target_path="$TARGET_DIR/$rel_path"
+
+    mkdir -p "$(dirname "$target_path")"
+
+    cp "$file" "$target_path"
+    echo "Installed: generate/$rel_path -> dreamgaussian/$rel_path"
 done
 
 echo "Setup completed."

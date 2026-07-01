@@ -1,0 +1,7 @@
+1:'Araneae, commonly known as spiders, exhibit a diverse range of appearances, varying from small and delicate to large and imposing, with eight legs, two body segments, and often distinctive markings and patterns on their abdomens.'
+2:'Coleoptera, the beetles, exhibit a remarkable diversity in appearance, ranging from small, shiny, and flightless to large, winged,and brightly colored, often with hardened forewings adapted for protection or flight.'
+3:'Diptera, or flies, are small insects with two wings, large compound eyes, and long antennae, varying in color from dull to bright, with some species having patterns or stripes on their bodies.'
+4:'Hemiptera, or bugs, are small to medium-sized insects typically characterized by a flattened body, strong forewings hardened into protective plates, and prominent eyes. Some species are brightly colored while others are dull-brown or black.'
+5:'Hymenoptera are distinguished by their thin waist connecting the thorax and abdomen, as well as their typically transparent and membranous wings.'
+6:'Lepidoptera, including butterflies and moths, are characterized by their wings, which are covered in scales and often display patterns and colors ranging from subtle to vivid. Their bodies are typically slender, and they have antennae and long, thin legs.'
+7:'Odonata, commonly known as dragonflies and damselflies, are characterized by their large, often brightly colored eyes, long, thin bodies, and two pairs of wings, the hindwings being broader than the forewings.'
