@@ -165,34 +165,22 @@ cd ../cdfsod-main
 conda activate cdfsod
 ```
 
-Update the dataset paths in:
+### 1. Preparation
 
-```text
-detectron2/data/datasets/builtin.py
-```
+Modify the dataset paths in `detectron2/data/datasets/builtin.py` and download the required weights following the [CDFSOD Running Instructions](https://github.com/lovelyqian/CDFSOD-benchmark#run-cd-vito).
 
-Use:
-
-```text
-output_dir/train_{shot}shot/
-output_dir/annotations/{shot}_shot.json
-```
-
-Build class prototypes:
+### 2. Generate Class Prototypes
 
 ```bash
 bash build_prototypes.sh
 ```
 
-Download the required model weights following:
-
-* [CDFSOD Running Instructions](https://github.com/lovelyqian/CDFSOD-benchmark#run-cd-vito)
-
-Train and evaluate:
+### 3. Train and Evaluate
 
 ```bash
 bash main_results.sh
 ```
+
 
 ## Notes
 
