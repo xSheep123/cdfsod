@@ -40,9 +40,7 @@ bash setup.sh
 
 ### 2. DreamGaussian Environment
 
-Follow the official installation guide:
-
-* [DreamGaussian Installation](https://github.com/dreamgaussian/dreamgaussian#install)
+Follow the official installation guide: [DreamGaussian Installation](https://github.com/dreamgaussian/dreamgaussian#install)
 
 ```bash
 cd dreamgaussian
@@ -62,9 +60,7 @@ Separate environments are recommended for DreamGaussian and CDFSOD.
 
 ## Data Preparation
 
-Download the datasets following:
-
-* [CDFSOD-benchmark Datasets](https://github.com/lovelyqian/CDFSOD-benchmark/tree/main#datasets)
+Download the datasets following: [CDFSOD-benchmark Datasets](https://github.com/lovelyqian/CDFSOD-benchmark/tree/main#datasets)
 
 Prepare the downloaded datasets using:
 
